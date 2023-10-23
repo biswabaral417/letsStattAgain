@@ -1,14 +1,68 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #root {
+        height: 100vh;
+        padding-top: 50px;
+        background: #000;
+    }
+
+    .top {
+        background-color:rgb(41, 41, 41);
+        height: 80%;
+        padding: 10px;
+        padding-bottom: 40px;
+        padding-top: 0;
+        border-radius: 20px;
+        clip-path: polygon(3% 0%,97% 0%, 100% 100%, 0% 100%);
+    }
+    .topchild{
+        clip-path: polygon(3% 0%,97% 0%, 100% 100%, 0% 100%);
+
+    }
+</style>
+
 <body>
-    
+    <div id="root">
+        <div class="top">
+            <div class="topchild" style="background-color: rgb(80, 76, 76); height: 95%;width: 100%;border-radius: 1rem;border-top-left-radius: 0; border-top-right-radius:0;"></div>
+        </div>
+        <div class="bottom">bottom</div>
+    </div>
 </body>
-<script src="./jsGettersAndSetters.js"></script>
+<script>
+    const boxtop = document.querySelector('.top')
+    const boxbottom = document.querySelector('.bottom')
+    let heit=boxtop.offsetHeight
+ 
+    
+    const fATimedloop=()=>{
+        setTimeout(() => {
+            heit--;
+            if (heit>=50) {
+                console.log(heit);
+                boxtop.style.height=`${heit}px` 
+                fATimedloop();  
+            }
+        }, 10);
+        
+    }
+    setTimeout(() => {
+        
+        fATimedloop()  
+    }, 3000);
+</script>
+
 </html>
