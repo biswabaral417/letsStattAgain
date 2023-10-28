@@ -8,3 +8,5 @@ class user {
 }
 const hari=new user("hari")
 hari.sayhi()
+
+console.log(typeof(hari))
